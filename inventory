@@ -1,0 +1,8 @@
+[web]
+web1.ausmarton.com
+#web2.ausmarton.com
+#can also be written as 
+# web[1:2].ausmarton.com
+
+[db]
+db.ausmarton.com
