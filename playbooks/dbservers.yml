@@ -1,0 +1,7 @@
+---
+- hosts: db
+  user: root
+  tasks:
+
+  - name: Install CouchDB.
+    yum: name=couchdb state=installed

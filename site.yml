@@ -1,0 +1,4 @@
+---
+- include: playbooks/common.yml
+- include: playbooks/webservers.yml
+#- include: playbooks/dbservers.yml

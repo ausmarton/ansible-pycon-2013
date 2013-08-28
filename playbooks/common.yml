@@ -1,11 +1,8 @@
 ---
-- hosts: web
+- hosts: all 
   user: root
   tasks:
-  # not really useful since most probably we're connected to openssh itself!
-  - name: Ensure that openssh is installed
-    yum: name=openssh state=installed
-
+  
   - name: Install the EPEL repository definitions.
     yum: name=http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm state=installed
 
