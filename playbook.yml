@@ -10,4 +10,4 @@
     yum: name=http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm state=installed
 
   - name: Import GPG Key for the EPEL repository
-    command: rpm --import http://epel.mirror.net.in/epel//RPM-GPG-KEY-EPEL-6
+    rpm_key: state=present key=http://epel.mirror.net.in/epel//RPM-GPG-KEY-EPEL-6
