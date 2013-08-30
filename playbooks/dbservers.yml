@@ -3,8 +3,11 @@
   user: root
   tasks:
 
-  - name: Install CouchDB.
-    yum: name=couchdb state=installed
+  - name: Install MongoDB
+    yum: name={{ item }} state=installed
+    with_items:
+    - mongodb
+    - mongodb-server
 
-  - name: Start CouchDB service
-    service: name=couchdb state=started
+  - name: Start the MongoDB service
+    service: name=mongod state=started
