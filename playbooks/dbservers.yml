@@ -5,3 +5,6 @@
 
   - name: Install CouchDB.
     yum: name=couchdb state=installed
+
+  - name: Start CouchDB service
+    service: name=couchdb state=started

@@ -20,7 +20,8 @@
     pip: name={{ item }}
     with_items:
     - uWSGI
-    - flask
+    - Flask
+    - Flask-CouchDB
 
   #  On a production system, we wouldn't want devel packages lying around
   #- name: Remove python-devel when done
