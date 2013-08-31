@@ -7,6 +7,9 @@
     app_name: tumblelog
     app_dir: /home/ausmarton/flask-tumblelog
     wsgi_callable: app
+    db_name: my_tumble_log
+    db_host: db.ausmarton.com
+    db_port: 27017
   
   tasks:
  
@@ -26,22 +29,27 @@
     tags:
     - offline
 
-  - name: Install uWSGI, Flask, WTForms, mongoengine and flask_mongoengine
-    pip: name={{ item }}
-    with_items:
-    - uWSGI
-    - Flask
-    - WTForms
-    - mongoengine
-    - flask_mongoengine
-    tags:
-    - packages
-    - internet
+  #- name: Install uWSGI, Flask, WTForms, mongoengine and flask_mongoengine
+   # pip: name={{ item }}
+   # with_items:
+   # - uWSGI
+   # - Flask
+    #- WTForms
+    #- mongoengine
+    #- flask-mongoengine
+    #tags:
+    #- packages
+    #- internet
 
   - name: Clone git repo
     git: repo=https://github.com/rozza/flask-tumblelog.git dest={{ app_dir }}
     tags:
     - internet
+
+  - name: Configure Tumblelog to use correct db
+    template: src=templates/__init__.py.j2 dest={{ app_dir }}/{{ app_name }}/__init__.py
+    tags:
+    - offline
 
   #  On a production system, we wouldn't want devel packages lying around
   - name: Remove python-devel when done
