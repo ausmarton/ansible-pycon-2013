@@ -29,17 +29,17 @@
     tags:
     - offline
 
-  #- name: Install uWSGI, Flask, WTForms, mongoengine and flask_mongoengine
-   # pip: name={{ item }}
-   # with_items:
-   # - uWSGI
-   # - Flask
-    #- WTForms
-    #- mongoengine
-    #- flask-mongoengine
-    #tags:
-    #- packages
-    #- internet
+  - name: Install uWSGI, Flask, WTForms, mongoengine and flask_mongoengine
+    pip: name={{ item }}
+    with_items:
+    - uWSGI
+    - Flask
+    - WTForms
+    - mongoengine
+    - flask-mongoengine
+    tags:
+    - packages
+    - internet
 
   - name: Clone git repo
     git: repo=https://github.com/rozza/flask-tumblelog.git dest={{ app_dir }}
