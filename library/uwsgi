@@ -15,6 +15,7 @@ def main():
               supports_check_mode=True
               )
 
+  rc = os.system("killall uwsgi")
   rc = os.system("uwsgi -s %s -w %s --chdir=%s --daemonize --chmod-socket=666 --uid=%s" % (module.params['sock_file'], module.params['app'], module.params['app_dir'], module.params['uid']))
 
   if rc != 0:
